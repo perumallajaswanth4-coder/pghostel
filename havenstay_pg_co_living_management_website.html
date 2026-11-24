@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HavenStay PG & Co-Living | Modern Student & Executive Hostel</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- ==================== 1. STICKY RESPONSIVE NAVIGATION BAR ==================== -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-chimney-window text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-xl tracking-tight text-slate-900 block leading-none">HavenStay <span class="text-brand-600">PG</span></span>
+                        <span class="text-[11px] font-medium uppercase tracking-widest text-slate-500">Co-Living & Hostel</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+                    <a href="#rooms" class="hover:text-brand-600 transition-colors py-2">Rooms</a>
+                    <a href="#facilities" class="hover:text-brand-600 transition-colors py-2">Facilities</a>
+                    <a href="#food-menu" class="hover:text-brand-600 transition-colors py-2">Food Menu</a>
+                    <a href="#rules" class="hover:text-brand-600 transition-colors py-2">Rules</a>
+                    <a href="#support" class="hover:text-brand-600 transition-colors py-2">Support</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors py-2">Contact</a>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openBookingModal('General Property Visit')" class="hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm px-5 py-2.5 rounded-xl shadow-sm hover:shadow transition-all active:scale-95">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <span>Book a Visit</span>
+                    </button>
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-2 shadow-lg">
+            <a href="#rooms" class="mobile-nav-link block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Available Rooms</a>
+            <a href="#facilities" class="mobile-nav-link block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Facilities & Amenities</a>
+            <a href="#food-menu" class="mobile-nav-link block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Weekly Food Menu</a>
+            <a href="#rules" class="mobile-nav-link block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Hostel Rules</a>
+            <a href="#support" class="mobile-nav-link block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Complaint & Support</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Contact & Location</a>
+            <div class="pt-2">
+                <button onclick="openBookingModal('General Property Visit')" class="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3.5 rounded-xl shadow">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Book a Visit</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section class="relative overflow-hidden bg-slate-900 text-white">
+        <!-- Background Image with Gradient Overlay -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1920&q=80"
+                 onerror="this.src='https://placehold.co/1920x1080/0f172a/14b8a6?text=HavenStay+PG+%26+Co-Living'"
+                 alt="Modern Cozy Bedroom at HavenStay PG"
+                 class="w-full h-full object-cover opacity-35">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-brand-950/75"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-7">
+                    <!-- Top Trust Pill -->
+                    <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-brand-100">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Zero Brokerage &bull; Instant Move-In Ready &bull; Separate Boys & Girls Wings</span>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="font-heading text-3xl sm:text-5xl lg:text-[3.4rem] font-extrabold tracking-tight leading-[1.15]">
+                        Comfortable, Safe &amp; Modern <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-amber-300">Student &amp; Executive</span> PG Living
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                        Experience stress-free co-living with fully furnished AC &amp; Non-AC rooms, home-style nutritious meals, blazing-fast 300 Mbps Wi-Fi, and 24/7 biometric security right next to major IT parks &amp; universities.
+                    </p>
+
+                    <!-- Quick Availability Summary Badges -->
+                    <div class="flex flex-wrap gap-3 pt-1">
+                        <div class="flex items-center gap-2.5 bg-emerald-500/15 border border-emerald-400/30 text-emerald-200 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                            <i class="fa-solid fa-bed text-emerald-400"></i>
+                            <span>Beds Available: <strong class="text-white" id="hero-beds-count">14</strong></span>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-amber-500/15 border border-amber-400/30 text-amber-200 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                            <i class="fa-solid fa-bolt text-amber-400"></i>
+                            <span>100% Power Backup</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-brand-500/15 border border-brand-400/30 text-brand-100 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                            <i class="fa-solid fa-utensils text-brand-400"></i>
+                            <span>Hygienic Homely Meals</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-3">
+                        <a href="#rooms" class="inline-flex items-center justify-center gap-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-brand-900/40 transition-all text-base">
+                            <span>Explore Rooms</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button onclick="openBookingModal('Schedule Property Tour')" class="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-bold px-7 py-4 rounded-xl transition-all text-base">
+                            <i class="fa-regular fa-calendar-days text-amber-400"></i>
+                            <span>Schedule Visit</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Feature Highlight Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-white/15 pb-4">
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-brand-300 font-semibold">Starting Monthly Tariff</p>
+                                <p class="font-heading text-3xl font-extrabold text-white mt-1">&#8377;7,500 <span class="text-sm font-normal text-slate-300">/ month</span></p>
+                            </div>
+                            <span class="bg-amber-500 text-slate-950 text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wide">
+                                All-Inclusive
+                            </span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-200">
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brand-500/30 text-brand-300 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                                <span>4 Daily Nutritious Meals (Breakfast, Lunch, Snacks, Dinner)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brand-500/30 text-brand-300 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                                <span>Dedicated Ergonomic Study Desk &amp; Orthopedic Mattress</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brand-500/30 text-brand-300 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                                <span>Biometric Entry, 24/7 CCTV &amp; On-Site Resident Warden</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-brand-500/30 text-brand-300 flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+                                <span>Transparent 1-Month Notice &amp; Instant Deposit Refund</span>
+                            </li>
+                        </ul>
+
+                        <div class="bg-slate-950/50 rounded-2xl p-4 flex items-center justify-between border border-white/10">
+                            <div class="flex items-center gap-3">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center text-xs font-bold ring-2 ring-slate-900">AR</div>
+                                    <div class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs font-bold ring-2 ring-slate-900">PS</div>
+                                    <div class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold ring-2 ring-slate-900">VK</div>
+                                </div>
+                                <div class="text-xs">
+                                    <p class="font-semibold text-white">4.9/5 Resident Rating</p>
+                                    <p class="text-slate-400">240+ Happy Students &amp; Techies</p>
+                                </div>
+                            </div>
+                            <a href="#contact" class="text-xs font-bold text-amber-400 hover:text-amber-300 underline">Location &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. AVAILABLE ROOMS SECTION ==================== -->
+    <section id="rooms" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Accommodation Options</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Available Rooms &amp; Tariffs</h2>
+                <p class="text-slate-600 mt-2 max-w-2xl">Choose from spacious private studios or budget-friendly shared rooms. All rents include Wi-Fi, daily housekeeping, and 4 meals a day.</p>
+            </div>
+
+            <!-- Interactive Filter Pills -->
+            <div class="flex flex-wrap gap-2" id="room-filters">
+                <button data-filter="all" class="filter-btn active px-4 py-2.5 rounded-xl text-sm font-bold bg-brand-600 text-white shadow-sm transition-all">
+                    All Rooms
+                </button>
+                <button data-filter="Single" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-brand-500 transition-all">
+                    Single Occupancy
+                </button>
+                <button data-filter="Double" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-brand-500 transition-all">
+                    Double Sharing
+                </button>
+                <button data-filter="Triple" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-brand-500 transition-all">
+                    Triple Sharing
+                </button>
+                <button data-filter="AC" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-brand-500 transition-all">
+                    <i class="fa-regular fa-snowflake text-sky-500 mr-1"></i>AC Only
+                </button>
+                <button data-filter="Non-AC" class="filter-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-brand-500 transition-all">
+                    Non-AC
+                </button>
+            </div>
+        </div>
+
+        <!-- Rooms Grid Container (Populated by JS) -->
+        <div id="rooms-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+
+    <!-- ==================== 4. ROOM FACILITIES & AMENITIES GRID ==================== -->
+    <section id="facilities" class="py-20 bg-white border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Everything Included</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Modern Facilities &amp; Amenities</h2>
+                <p class="text-slate-600 mt-3">Thoughtfully designed infrastructure so you can focus on your studies, career, and relaxation without household chores.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Facility 1 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">High-Speed Wi-Fi (300 Mbps)</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Enterprise mesh routers on every floor ensuring lag-free Zoom calls, coding, and streaming.</p>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">24/7 CCTV &amp; Biometric Security</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Smart face/fingerprint access control, night security guards, and round-the-clock surveillance.</p>
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Daily Housekeeping</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Trained housekeeping staff sanitize rooms and attached washrooms every morning with fresh linens.</p>
+                </div>
+
+                <!-- Facility 4 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-xl mb-4 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Washing Machines &amp; Laundry</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Complimentary automatic front-load washing machines plus dedicated covered terrace drying zones.</p>
+                </div>
+
+                <!-- Facility 5 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-xl mb-4 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">RO + UV Drinking Water</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Multi-stage purified hot, normal, and cold water dispensers installed on every residential floor.</p>
+                </div>
+
+                <!-- Facility 6 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-laptop-file"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Quiet Study &amp; Co-Work Lounge</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Air-conditioned reading library &amp; collaborative workspace open 24/7 for exam prep or remote work.</p>
+                </div>
+
+                <!-- Facility 7 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-xl mb-4 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-car-battery"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">100% DG Power Backup</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Silent acoustic diesel generator backup supporting lights, fans, Wi-Fi routers, and lift operations.</p>
+                </div>
+
+                <!-- Facility 8 -->
+                <div class="bg-slate-50 hover:bg-white p-6 rounded-2xl border border-slate-200/80 hover:border-brand-300 hover:shadow-lg transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl mb-4 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-square-parking"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-slate-900">Covered Two-Wheeler Parking</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">CCTV-monitored basement &amp; stilt parking with EV charging points for bikes and scooters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. WEEKLY FOOD & MESS MENU SECTION ==================== -->
+    <section id="food-menu" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+            <div>
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">HavenStay Dining Hall</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Weekly Food &amp; Mess Menu</h2>
+                <p class="text-slate-600 mt-2 max-w-2xl">Freshly prepared, balanced, low-oil homely meals cooked in a FSSAI-certified modular kitchen.</p>
+            </div>
+
+            <!-- Dietary & Hygiene Badges -->
+            <div class="flex flex-wrap gap-2.5">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Pure Veg &amp; Jain Counters
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                    <i class="fa-solid fa-egg"></i> Egg &amp; Non-Veg Specials (Wed/Fri/Sun)
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-sky-100 text-sky-800 border border-sky-200">
+                    <i class="fa-solid fa-droplet"></i> 100% RO Water Cooking
+                </span>
+            </div>
+        </div>
+
+        <!-- Interactive Day Tabs -->
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-200/90 overflow-hidden">
+            <div class="flex overflow-x-auto border-b border-slate-200 bg-slate-100/70 p-2 gap-1.5" id="day-tabs">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Active Day Meals Display -->
+            <div id="menu-content" class="p-6 sm:p-8">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. HOSTEL RULES & REGULATIONS SECTION ==================== -->
+    <section id="rules" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Community Guidelines</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold mt-1">Hostel Rules &amp; Resident Policy</h2>
+                <p class="text-slate-300 mt-3">Simple, transparent guidelines designed to ensure safety, mutual respect, and a peaceful living atmosphere for every resident.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Rule Card 1 -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-brand-500/60 transition-colors">
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="w-11 h-11 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-lg">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg">Timings &amp; Biometric Entry</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs"></i><span>24/7 biometric access for working professionals with night shifts.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs"></i><span>Student wing main gate closes at 10:30 PM; prior warden intimation required for late return.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs"></i><span>Valid Government ID &amp; College/Company ID mandatory during check-in.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Rule Card 2 -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-brand-500/60 transition-colors">
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="w-11 h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg">Visitors &amp; Parents Policy</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-amber-400 mt-1 text-xs"></i><span>Visitors &amp; parents are welcome in the Ground Floor Reception Lounge between 9:00 AM &ndash; 8:00 PM.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-amber-400 mt-1 text-xs"></i><span>Visitors must sign the security register with a valid photo ID.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-amber-400 mt-1 text-xs"></i><span>Overnight stay of non-residents inside rooms is strictly prohibited.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Rule Card 3 -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-brand-500/60 transition-colors">
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg">Cleanliness &amp; Maintenance</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-1 text-xs"></i><span>Keep personal belongings organized so housekeeping can clean floors daily.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-1 text-xs"></i><span>Switch off ACs, geysers, and lights before leaving the room.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-1 text-xs"></i><span>High-wattage personal heaters or induction stoves are not permitted inside rooms.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Rule Card 4 -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-brand-500/60 transition-colors">
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="w-11 h-11 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg">Notice Period &amp; Rent Payment</h3>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-1 text-xs"></i><span>Monthly rent is payable on or before the 5th of every calendar month via UPI/Bank Transfer.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-1 text-xs"></i><span>30 days prior written notice is mandatory before vacating the PG.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-400 mt-1 text-xs"></i><span>100% refundable security deposit settled within 48 hours of room handover.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Rule Card 5 -->
+                <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-brand-500/60 transition-colors md:col-span-2 lg:col-span-2">
+                    <div class="flex items-center gap-3.5 mb-4">
+                        <div class="w-11 h-11 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg">Noise, Safety &amp; Zero-Tolerance Conduct</h3>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 text-sm text-slate-300">
+                        <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-rose-400 mt-1 text-xs"></i><span>Quiet hours are strictly observed from 10:30 PM to 7:00 AM across all corridors and rooms.</span></div>
+                        <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-rose-400 mt-1 text-xs"></i><span>HavenStay is a strictly smoke-free, alcohol-free, and substance-free campus.</span></div>
+                        <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-rose-400 mt-1 text-xs"></i><span>Use headphones for music/gaming after 10:00 PM to respect roommates.</span></div>
+                        <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-rose-400 mt-1 text-xs"></i><span>Any damage to furniture or fixtures will be deducted at actual repair cost.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. COMPLAINT / RESIDENT SUPPORT PORTAL ==================== -->
+    <section id="support" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+            <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">24/7 Resident Helpdesk</span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Complaint &amp; Maintenance Support Portal</h2>
+            <p class="text-slate-600 mt-2 max-w-2xl">Facing a Wi-Fi glitch, plumbing leak, or have a food suggestion? Raise a digital support ticket below and track live resolution status.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            <!-- Left: Interactive Ticket Submission Form -->
+            <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <h3 class="font-heading font-bold text-xl text-slate-900 mb-6 flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center text-base">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </span>
+                    <span>Raise a Support Ticket</span>
+                </h3>
+
+                <form id="ticket-form" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="ticket-name" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Resident Name *</label>
+                            <input type="text" id="ticket-name" required placeholder="e.g., Rohan Sharma"
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm">
+                        </div>
+                        <div>
+                            <label for="ticket-room" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Room Number *</label>
+                            <input type="text" id="ticket-room" required placeholder="e.g., B-204"
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="ticket-category" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Issue Category *</label>
+                            <select id="ticket-category" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm bg-white">
+                                <option value="Wi-Fi">Wi-Fi &amp; Internet</option>
+                                <option value="Plumbing">Plumbing &amp; Water</option>
+                                <option value="Electrical">Electrical &amp; AC</option>
+                                <option value="Food/Mess">Food / Mess Quality</option>
+                                <option value="Housekeeping">Housekeeping &amp; Cleaning</option>
+                                <option value="Other">Other Request</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="ticket-priority" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Priority Level *</label>
+                            <select id="ticket-priority" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm bg-white">
+                                <option value="Low">Low (General)</option>
+                                <option value="Medium" selected>Medium (Within 12 hrs)</option>
+                                <option value="High">High / Urgent (Immediate)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="ticket-desc" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Issue Description *</label>
+                        <textarea id="ticket-desc" rows="3" required placeholder="Describe the issue clearly so our technician can bring the right tools..."
+                                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Submit Support Ticket</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right: Recent Ticket Tracker + Emergency Warden Contacts -->
+            <div class="lg:col-span-6 space-y-6">
+                <!-- Live Ticket Tracker -->
+                <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                    <div class="flex items-center justify-between mb-5">
+                        <h3 class="font-heading font-bold text-xl text-slate-900 flex items-center gap-2.5">
+                            <span class="w-9 h-9 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-base">
+                                <i class="fa-solid fa-list-check"></i>
+                            </span>
+                            <span>Recent Ticket Tracker</span>
+                        </h3>
+                        <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Avg Resolution: 3.5 hrs</span>
+                    </div>
+
+                    <div id="ticket-list" class="space-y-3 max-h-[310px] overflow-y-auto pr-1">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Emergency Warden Contact Cards -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-gradient-to-br from-rose-50 to-orange-50 border border-rose-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-9 h-9 rounded-full bg-rose-600 text-white flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </span>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-wider text-rose-700">24/7 Emergency Warden</p>
+                                <p class="font-heading font-bold text-slate-900">Mr. Suresh Nair</p>
+                            </div>
+                        </div>
+                        <p class="text-sm font-bold text-slate-800 mt-2">+91 98450 11223</p>
+                        <p class="text-xs text-slate-600 mt-0.5">Medical, Security &amp; Late Gate Entry</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-brand-50 to-sky-50 border border-brand-200 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center text-sm">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </span>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-wider text-brand-700">Girls Wing Resident Warden</p>
+                                <p class="font-heading font-bold text-slate-900">Mrs. Kavitha Menon</p>
+                            </div>
+                        </div>
+                        <p class="text-sm font-bold text-slate-800 mt-2">+91 98450 44556</p>
+                        <p class="text-xs text-slate-600 mt-0.5">On-Campus Lady Warden (Block B)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 8. CONTACT DETAILS & LOCATION SECTION ==================== -->
+    <section id="contact" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Visit or Reach Out</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Contact Details &amp; Location</h2>
+                <p class="text-slate-600 mt-3">Walk in for a free tour and complimentary lunch tasting, or schedule your visit online below.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Contact Info & Styled Location Card -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200/90 space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-lg text-slate-900">HavenStay PG &amp; Co-Living Campus</h3>
+                                <p class="text-sm text-slate-600 mt-1 leading-relaxed">
+                                    Plot No. 42, Green Meadows Avenue, Opposite TechHub IT Park, Near Metro Station Pillar 118, Electronic City Phase 1, Bengaluru - 560100
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-phone text-brand-600 mt-1"></i>
+                                <div>
+                                    <p class="text-xs font-bold uppercase text-slate-500">Admissions &amp; Manager</p>
+                                    <p class="text-sm font-bold text-slate-900 mt-0.5">+91 80 4123 7890</p>
+                                    <p class="text-sm font-bold text-slate-900">+91 99001 77889</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-envelope text-brand-600 mt-1"></i>
+                                <div>
+                                    <p class="text-xs font-bold uppercase text-slate-500">Email &amp; Hours</p>
+                                    <p class="text-sm font-bold text-slate-900 mt-0.5">stay@havenstaypg.in</p>
+                                    <p class="text-xs text-slate-600 mt-0.5">Visiting: 9:00 AM &ndash; 8:30 PM (All Days)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clean Styled Interactive Map Card -->
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 text-white p-6 sm:p-8">
+                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                            <div class="space-y-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400">
+                                    <i class="fa-solid fa-compass"></i> Prime Connectivity
+                                </span>
+                                <h4 class="font-heading text-xl font-bold">Walking Distance to Major Hubs</h4>
+                                <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 pt-1">
+                                    <li><i class="fa-solid fa-person-walking text-brand-400 w-5"></i> 3 mins walk to TechHub IT Park &amp; Bus Stop</li>
+                                    <li><i class="fa-solid fa-train-subway text-brand-400 w-5"></i> 6 mins walk to Metro Station (Blue Line)</li>
+                                    <li><i class="fa-solid fa-hospital text-brand-400 w-5"></i> 500m from Apollo Pharmacy &amp; Supermarkets</li>
+                                </ul>
+                            </div>
+                            <a href="https://maps.google.com/?q=Electronic+City+Phase+1+Bengaluru" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-brand-50 font-bold text-sm px-5 py-3.5 rounded-xl shadow shrink-0 transition-all">
+                                <i class="fa-solid fa-diamond-turn-right text-brand-600"></i>
+                                <span>Open Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Book a Visit / Enquiry Form -->
+                <div class="lg:col-span-6 bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200/90">
+                    <h3 class="font-heading font-bold text-2xl text-slate-900">Book a Visit / Quick Enquiry</h3>
+                    <p class="text-sm text-slate-600 mt-1 mb-6">Fill in your details and our resident coordinator will confirm your slot within 30 minutes.</p>
+
+                    <form id="contact-enquiry-form" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="enq-name" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Full Name *</label>
+                                <input type="text" id="enq-name" required placeholder="Enter your name"
+                                       class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm">
+                            </div>
+                            <div>
+                                <label for="enq-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Mobile / WhatsApp *</label>
+                                <input type="tel" id="enq-phone" required placeholder="+91 98765 43210"
+                                       class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="enq-room-type" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Preferred Room</label>
+                                <select id="enq-room-type"
+                                        class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm">
+                                    <option value="Single Occupancy AC">Single Occupancy AC (&#8377;15,500/mo)</option>
+                                    <option value="Single Occupancy Non-AC">Single Occupancy Non-AC (&#8377;13,000/mo)</option>
+                                    <option value="Double Sharing AC" selected>Double Sharing AC (&#8377;10,500/mo)</option>
+                                    <option value="Double Sharing Non-AC">Double Sharing Non-AC (&#8377;9,000/mo)</option>
+                                    <option value="Triple Sharing AC">Triple Sharing AC (&#8377;8,800/mo)</option>
+                                    <option value="Triple Sharing Non-AC">Triple Sharing Non-AC (&#8377;7,500/mo)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="enq-date" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Preferred Visit / Move-in Date *</label>
+                                <input type="date" id="enq-date" required
+                                       class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="enq-notes" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Additional Notes (Optional)</label>
+                            <textarea id="enq-notes" rows="3" placeholder="Mention Boys/Girls wing preference, parking requirement, or questions..."
+                                      class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <span>Confirm Visit &amp; Request Callback</span>
+                        </button>
+                    </form>
+
+                    <!-- Instant Confirmation Banner (Hidden by default) -->
+                    <div id="enq-confirmation" class="hidden mt-5 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-900 text-sm flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-0.5"></i>
+                        <div>
+                            <p class="font-bold">Visit Scheduled Successfully!</p>
+                            <p id="enq-confirmation-text" class="text-emerald-800 mt-0.5"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                </div>
+                <span class="font-heading font-bold text-white text-lg">HavenStay PG &amp; Co-Living</span>
+            </div>
+            <p class="text-xs sm:text-sm text-center">
+                &copy; 2026 HavenStay Hospitality Pvt. Ltd. All rights reserved. &bull; Safe, Hygienic &amp; Transparent Living.
+            </p>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="#rooms" class="hover:text-white transition-colors">Rooms</a>
+                <a href="#food-menu" class="hover:text-white transition-colors">Menu</a>
+                <a href="#rules" class="hover:text-white transition-colors">Rules</a>
+                <a href="#support" class="hover:text-white transition-colors">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE BOOK / ENQUIRE MODAL ==================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-[fadeIn_0.2s_ease-out]">
+            <button onclick="closeBookingModal()" aria-label="Close Modal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Instant Reservation / Tour</span>
+            <h3 id="modal-room-title" class="font-heading text-2xl font-extrabold text-slate-900 mt-1">Book Room / Schedule Visit</h3>
+            <p id="modal-room-subtitle" class="text-sm text-slate-600 mt-1">Lock your bed with zero brokerage or schedule an in-person inspection.</p>
+
+            <form id="modal-booking-form" class="space-y-4 mt-6">
+                <div>
+                    <label for="modal-name" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Your Full Name *</label>
+                    <input type="text" id="modal-name" required placeholder="e.g., Ananya Verma"
+                           class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 outline-none text-sm">
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="modal-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Phone Number *</label>
+                        <input type="tel" id="modal-phone" required placeholder="+91 98765 43210"
+                               class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 outline-none text-sm">
+                    </div>
+                    <div>
+                        <label for="modal-wing" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Wing Preference *</label>
+                        <select id="modal-wing" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 outline-none text-sm bg-white">
+                            <option value="Boys Wing (Block A)">Boys Wing (Block A)</option>
+                            <option value="Girls Wing (Block B)">Girls Wing (Block B)</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="modal-date" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Expected Check-In / Visit Date *</label>
+                    <input type="date" id="modal-date" required
+                           class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-600 outline-none text-sm">
+                </div>
+
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow transition-all">
+                    Submit Enquiry &amp; Hold Bed
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden max-w-sm bg-slate-900 text-white px-5 py-4 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <p id="toast-message" class="text-sm font-medium"></p>
+    </div>
+
+    <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+    <script>
+        // 1. ROOMS DATA
+        const roomsData = [
+            {
+                id: 1,
+                title: "Executive Single Studio (AC)",
+                occupancy: "Single",
+                climate: "AC",
+                rent: "15,500",
+                deposit: "15,500",
+                bedsLeft: 2,
+                image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80",
+                amenities: ["Split AC", "Attached Bath", "Queen Bed", "Smart TV", "Work Desk", "Balcony"]
+            },
+            {
+                id: 2,
+                title: "Classic Single Room (Non-AC)",
+                occupancy: "Single",
+                climate: "Non-AC",
+                rent: "13,000",
+                deposit: "13,000",
+                bedsLeft: 1,
+                image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=900&q=80",
+                amenities: ["Cross Ventilation", "Attached Bath", "Single Bed", "Wardrobe", "Study Table"]
+            },
+            {
+                id: 3,
+                title: "Twin Comfort Sharing (AC)",
+                occupancy: "Double",
+                climate: "AC",
+                rent: "10,500",
+                deposit: "10,500",
+                bedsLeft: 3,
+                image: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=80",
+                amenities: ["Split AC", "2 Ortho Beds", "2 Study Desks", "Geyser", "Personal Lockers"]
+            },
+            {
+                id: 4,
+                title: "Twin Standard Sharing (Non-AC)",
+                occupancy: "Double",
+                climate: "Non-AC",
+                rent: "9,000",
+                deposit: "9,000",
+                bedsLeft: 3,
+                image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
+                amenities: ["Ceiling Fans", "Attached Washroom", "2 Wardrobes", "300 Mbps Wi-Fi", "Bookshelf"]
+            },
+            {
+                id: 5,
+                title: "Triple Co-Living Suite (AC)",
+                occupancy: "Triple",
+                climate: "AC",
+                rent: "8,800",
+                deposit: "8,800",
+                bedsLeft: 2,
+                image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=900&q=80",
+                amenities: ["Split AC", "Spacious 380 sq.ft", "3 Individual Desks", "Attached Bath", "Geyser"]
+            },
+            {
+                id: 6,
+                title: "Triple Value Sharing (Non-AC)",
+                occupancy: "Triple",
+                climate: "Non-AC",
+                rent: "7,500",
+                deposit: "7,500",
+                bedsLeft: 3,
+                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80",
+                amenities: ["Large Windows", "3 Ortho Beds", "Individual Almirahs", "4 Meals Included", "Daily Cleaning"]
+            }
+        ];
+
+        // 2. WEEKLY FOOD MENU DATA
+        const weeklyMenu = {
+            Monday: {
+                specialTag: "Healthy Start Monday",
+                breakfast: { time: "7:30 AM – 9:30 AM", items: "Idli & Medu Vada, Sambar, Coconut Chutney, Bread Butter/Jam, Tea & Filter Coffee" },
+                lunch: { time: "12:30 PM – 2:30 PM", items: "Phulka Roti, Jeera Rice, Dal Tadka, Aloo Gobi Matar, Curd, Green Salad & Papad" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Veg Poha with Sev & Peanuts, Masala Chai" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Chapati, Steamed Rice, Paneer Butter Masala, Moong Dal Fry, Gulab Jamun" }
+            },
+            Tuesday: {
+                specialTag: "North & South Fusion",
+                breakfast: { time: "7:30 AM – 9:30 AM", items: "Aloo Paratha with Curd & Pickle, Banana, Cornflakes with Milk, Tea/Coffee" },
+                lunch: { time: "12:30 PM – 2:30 PM", items: "Chapati, Lemon Rice, Rajma Masala, Cabbage Poriyal, Buttermilk, Salad" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Samosa with Mint & Tamarind Chutney, Ginger Tea" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Phulka, Veg Pulao, Mix Veg Kadai, Dal Makhani, Fruit Custard" }
+            },
+            Wednesday: {
+                specialTag: "Mid-Week Protein Feast",
+                breakfast: { time: "7:30 AM – 9:30 AM", items: "Masala Dosa, Sambar, Tomato Chutney, Boiled Eggs (Optional), Tea & Coffee" },
+                lunch: { time: "12:30 PM – 2:30 PM", items: "Chapati, Steamed Rice, Sambar, Bhindi Fry, Rasam, Curd & Pickle" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Sweet Corn Chaat & Biscuits, Coffee / Tea" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Butter Roti, Biryani Rice, Homestyle Chicken Curry / Kadai Paneer (Veg), Raita" }
+            },
+            Thursday: {
+                specialTag: "Light & Wholesome",
+                breakfast: { time: "7:30 AM – 9:30 AM", items: "Rava Upma, Kesari Bath, Coconut Chutney, Toast & Jam, Tea & Coffee" },
+                lunch: { time: "12:30 PM – 2:30 PM", items: "Phulka, Steamed Rice, Chana Masala, Lauki Chana Dal, Curd, Salad" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Bread Pakora / Onion Bajji, Masala Chai" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Chapati, Jeera Rice, Matar Mushroom / Egg Curry, Yellow Dal, Kheer" }
+            },
+            Friday: {
+                specialTag: "Chef's Friday Special",
+                breakfast: { time: "7:30 AM – 9:30 AM", items: "Puri Bhaji (Aloo Sabzi), Sprouts Salad, Tea & Filter Coffee" },
+                lunch: { time: "12:30 PM – 2:30 PM", items: "Chapati, Tamarind Rice, Dal Palak, Baingan Bharta, Buttermilk, Papad" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Veg Cutlet with Ketchup, Elaichi Tea" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Tandoori Roti, Fried Rice, Chilli Chicken / Chilli Paneer (Veg), Manchurian Gravy" }
+            },
+            Saturday: {
+                specialTag: "Weekend Comfort",
+                breakfast: { time: "8:00 AM – 10:00 AM", items: "Chole Bhature / Poha, Sweet Lassi, Bread Omelette (Optional), Tea/Coffee" },
+                lunch: { time: "12:30 PM – 2:30 PM", items: "Phulka, Steamed Rice, Khichdi, Kadhi Pakora, Aloo Jeera, Roasted Papad" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Bhel Puri & Sev Puri, Lemon Iced Tea / Chai" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Chapati, Steamed Rice, Dal Tadka, Dum Aloo Kashmiri, Ice Cream" }
+            },
+            Sunday: {
+                specialTag: "Sunday Grand Feast",
+                breakfast: { time: "8:00 AM – 10:30 AM", items: "Gobi & Paneer Stuffed Paratha, Curd, Butter, Fresh Watermelon Juice, Tea/Coffee" },
+                lunch: { time: "1:00 PM – 3:00 PM", items: "Hyderabadi Chicken Dum Biryani / Veg Subz Dum Biryani, Mirchi Ka Salan, Raita, Double Ka Meetha" },
+                snacks: { time: "5:00 PM – 6:15 PM", items: "Veg Sandwich / Burger, Cold Coffee or Masala Tea" },
+                dinner: { time: "8:00 PM – 10:00 PM", items: "Light Phulka, Tomato Soup, Steamed Rice, Moong Dal, Mix Veg Curry" }
+            }
+        };
+
+        // 3. INITIAL SAMPLE SUPPORT TICKETS
+        const supportTickets = [
+            {
+                id: "TKT-1042",
+                name: "Siddharth Rao",
+                room: "A-302",
+                category: "Wi-Fi",
+                priority: "Medium",
+                desc: "5GHz router signal dropping near the study desk corner.",
+                status: "In Progress",
+                time: "2 hours ago"
+            },
+            {
+                id: "TKT-1041",
+                name: "Megha Kulkarni",
+                room: "B-108",
+                category: "Plumbing",
+                priority: "High",
+                desc: "Washroom shower mixer tap dripping continuously.",
+                status: "Resolved",
+                time: "Yesterday"
+            },
+            {
+                id: "TKT-1039",
+                name: "Karthik Nair",
+                room: "A-205",
+                category: "Electrical",
+                priority: "Low",
+                desc: "Study lamp LED tube flickering.",
+                status: "Resolved",
+                time: "2 days ago"
+            }
+        ];
+
+        // RENDER ROOM CARDS
+        function renderRooms(filter = "all") {
+            const grid = document.getElementById("rooms-grid");
+            const filtered = roomsData.filter(room => {
+                if (filter === "all") return true;
+                if (filter === "AC" || filter === "Non-AC") return room.climate === filter;
+                return room.occupancy === filter;
+            });
+
+            grid.innerHTML = filtered.map(room => `
+                <article class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden bg-slate-200">
+                        <img src="${room.image}"
+                             onerror="this.src='https://placehold.co/800x500/0f766e/ffffff?text=${encodeURIComponent(room.title)}'"
+                             alt="${room.title}"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3.5 left-3.5 flex gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-900/85 text-white backdrop-blur-sm">
+                                ${room.occupancy}
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${room.climate === 'AC' ? 'bg-sky-500 text-white' : 'bg-amber-400 text-slate-950'}">
+                                ${room.climate}
+                            </span>
+                        </div>
+                        <div class="absolute bottom-3.5 right-3.5">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-500 text-white shadow">
+                                <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                                ${room.bedsLeft} ${room.bedsLeft === 1 ? 'Bed' : 'Beds'} Left
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-slate-900">${room.title}</h3>
+                            <div class="flex items-baseline justify-between mt-3 pb-4 border-b border-slate-100">
+                                <div>
+                                    <span class="font-heading text-2xl font-extrabold text-brand-700">&#8377;${room.rent}</span>
+                                    <span class="text-xs text-slate-500 font-medium">/ month</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xs text-slate-500 block">Security Deposit</span>
+                                    <span class="text-xs font-bold text-slate-800">&#8377;${room.deposit} (Refundable)</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Room Highlights</p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${room.amenities.map(item => `
+                                        <span class="text-xs font-medium bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
+                                            ${item}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-2">
+                            <button onclick="openBookingModal('${room.title} (₹${room.rent}/mo)')"
+                                    class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-sm transition-colors flex items-center justify-center gap-2">
+                                <span>Book / Enquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // FILTER BUTTON HANDLERS
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".filter-btn").forEach(b => {
+                    b.classList.remove("bg-brand-600", "text-white", "shadow-sm");
+                    b.classList.add("bg-white", "text-slate-700", "border", "border-slate-200");
+                });
+                btn.classList.remove("bg-white", "text-slate-700", "border", "border-slate-200");
+                btn.classList.add("bg-brand-600", "text-white", "shadow-sm");
+                renderRooms(btn.dataset.filter);
+            });
+        });
+
+        // RENDER WEEKLY FOOD MENU TABS & CONTENT
+        const days = Object.keys(weeklyMenu);
+        let activeDay = "Monday";
+
+        function renderFoodMenu(day) {
+            activeDay = day;
+            const tabsContainer = document.getElementById("day-tabs");
+            tabsContainer.innerHTML = days.map(d => `
+                <button onclick="renderFoodMenu('${d}')"
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
+                            d === activeDay
+                            ? 'bg-brand-600 text-white shadow-sm'
+                            : 'text-slate-600 hover:bg-white hover:text-slate-900'
+                        }">
+                    ${d}
+                </button>
+            `).join('');
+
+            const menu = weeklyMenu[day];
+            const content = document.getElementById("menu-content");
+            content.innerHTML = `
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-6 mb-6 border-b border-slate-100">
+                    <div>
+                        <h3 class="font-heading text-2xl font-extrabold text-slate-900">${day}'s Dining Schedule</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Unlimited second helpings for Roti, Rice, Dal &amp; Sambar</p>
+                    </div>
+                    <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-50 text-brand-700 border border-brand-200">
+                        <i class="fa-solid fa-star text-amber-500 mr-1"></i> ${menu.specialTag}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-heading font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-mug-hot text-amber-600"></i> Breakfast
+                            </span>
+                            <span class="text-[11px] font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md">${menu.breakfast.time}</span>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">${menu.breakfast.items}</p>
+                    </div>
+
+                    <div class="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-heading font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-bowl-rice text-emerald-600"></i> Lunch
+                            </span>
+                            <span class="text-[11px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">${menu.lunch.time}</span>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">${menu.lunch.items}</p>
+                    </div>
+
+                    <div class="bg-sky-50/70 border border-sky-200/80 rounded-2xl p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-heading font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-cookie-bite text-sky-600"></i> Evening Snacks
+                            </span>
+                            <span class="text-[11px] font-semibold text-sky-800 bg-sky-100 px-2 py-0.5 rounded-md">${menu.snacks.time}</span>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">${menu.snacks.items}</p>
+                    </div>
+
+                    <div class="bg-indigo-50/70 border border-indigo-200/80 rounded-2xl p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="font-heading font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-plate-wheat text-indigo-600"></i> Dinner
+                            </span>
+                            <span class="text-[11px] font-semibold text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded-md">${menu.dinner.time}</span>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">${menu.dinner.items}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // RENDER SUPPORT TICKETS
+        function renderTickets() {
+            const list = document.getElementById("ticket-list");
+            list.innerHTML = supportTickets.map(t => {
+                const statusBadge = t.status === "Resolved"
+                    ? "bg-emerald-100 text-emerald-800 border-emerald-200"
+                    : t.status === "In Progress"
+                    ? "bg-amber-100 text-amber-800 border-amber-200"
+                    : "bg-sky-100 text-sky-800 border-sky-200";
+
+                const priorityColor = t.priority === "High"
+                    ? "text-rose-600"
+                    : t.priority === "Medium"
+                    ? "text-amber-600"
+                    : "text-slate-500";
+
+                return `
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="space-y-1">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="text-xs font-extrabold text-brand-700">${t.id}</span>
+                                <span class="text-xs font-bold text-slate-800">&bull; Room ${t.room} (${t.name})</span>
+                                <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700">${t.category}</span>
+                                <span class="text-[11px] font-bold ${priorityColor}">&bull; ${t.priority} Priority</span>
+                            </div>
+                            <p class="text-sm text-slate-600">${t.desc}</p>
+                        </div>
+                        <div class="flex sm:flex-col items-center sm:items-end justify-between gap-1 shrink-0">
+                            <span class="text-xs font-bold px-3 py-1 rounded-full border ${statusBadge}">${t.status}</span>
+                            <span class="text-[11px] text-slate-400">${t.time}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // HANDLE NEW SUPPORT TICKET SUBMISSION
+        document.getElementById("ticket-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("ticket-name").value.trim();
+            const room = document.getElementById("ticket-room").value.trim().toUpperCase();
+            const category = document.getElementById("ticket-category").value;
+            const priority = document.getElementById("ticket-priority").value;
+            const desc = document.getElementById("ticket-desc").value.trim();
+
+            const newTicket = {
+                id: "TKT-" + Math.floor(1043 + Math.random() * 900),
+                name,
+                room,
+                category,
+                priority,
+                desc,
+                status: "Open (Assigned)",
+                time: "Just now"
+            };
+
+            supportTickets.unshift(newTicket);
+            renderTickets();
+            this.reset();
+            showToast(`Ticket ${newTicket.id} raised for Room ${room}! Warden notified.`);
+        });
+
+        // HANDLE CONTACT / VISIT FORM SUBMISSION
+        document.getElementById("contact-enquiry-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("enq-name").value.trim();
+            const roomType = document.getElementById("enq-room-type").value;
+            const date = document.getElementById("enq-date").value;
+
+            const box = document.getElementById("enq-confirmation");
+            const text = document.getElementById("enq-confirmation-text");
+            text.textContent = `Thank you, ${name}! Your tour for ${roomType} on ${date} is registered. Our manager will call you shortly.`;
+            box.classList.remove("hidden");
+            this.reset();
+            showToast("Property visit scheduled! Confirmation sent.");
+        });
+
+        // MODAL CONTROLS
+        const modal = document.getElementById("booking-modal");
+        function openBookingModal(roomTitle) {
+            document.getElementById("modal-room-title").textContent = roomTitle;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeBookingModal() {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal) closeBookingModal();
+        });
+
+        document.getElementById("modal-booking-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("modal-name").value.trim();
+            const roomTitle = document.getElementById("modal-room-title").textContent;
+            closeBookingModal();
+            this.reset();
+            showToast(`Request received from ${name} for ${roomTitle}!`);
+        });
+
+        // MOBILE MENU TOGGLE
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileIcon = document.getElementById("mobile-menu-icon");
+
+        mobileBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            mobileIcon.classList.toggle("fa-bars");
+            mobileIcon.classList.toggle("fa-xmark");
+        });
+
+        document.querySelectorAll(".mobile-nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+                mobileIcon.classList.add("fa-bars");
+                mobileIcon.classList.remove("fa-xmark");
+            });
+        });
+
+        // TOAST HELPER
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toast-message").textContent = msg;
+            toast.classList.remove("hidden");
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 4000);
+        }
+
+        // INITIALIZE ON LOAD
+        window.addEventListener("DOMContentLoaded", () => {
+            renderRooms("all");
+            renderFoodMenu("Monday");
+            renderTickets();
+        });
+    </script>
+</body>
+</html>
